@@ -1,0 +1,17 @@
+{
+    "extends": "../../tslint.json",
+    "rules": {
+        "directive-selector": [
+            true,
+            "attribute",
+            "golda-docs",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "golda-docs",
+            "kebab-case"
+        ]
+    }
+}

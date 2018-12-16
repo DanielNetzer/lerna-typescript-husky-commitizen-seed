@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "golda-nodes": [
+        "dist/golda-nodes"
+      ],
+      "golda-nodes/*": [
+        "dist/golda-nodes/*"
+      ]
+    }
   }
 }
