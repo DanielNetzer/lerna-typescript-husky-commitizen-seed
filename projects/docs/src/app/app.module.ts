@@ -1,5 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule, makeStateKey, TransferState } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, Inject } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, Apollo } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { RouterModule } from '@angular/router';
 
 const STATE_KEY = makeStateKey<any>('apollo.state');
 
@@ -20,7 +21,8 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
     BrowserTransferStateModule,
     HttpClientModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -34,13 +36,21 @@ export class AppModule {
     private readonly transferState: TransferState,
   ) {
     this.cache = new InMemoryCache();
-    console.log('INIT?');
-    apollo.create({
-      link: httpLink.create({ uri: '/graphql' }),
-      cache: this.cache,
-    });
-
     const isBrowser = this.transferState.hasKey<any>(STATE_KEY);
+
+    apollo.create({
+      link: httpLink.create({ uri: '/api/graphql' }),
+      cache: this.cache,
+      ...(isBrowser
+        ? {
+          // queries with `forceFetch` enabled will be delayed
+          ssrForceFetchDelay: 200,
+        }
+        : {
+          // avoid to run twice queries with `forceFetch` enabled
+          ssrMode: true,
+        })
+    });
 
     if (isBrowser) {
       this.onBrowser();
@@ -50,7 +60,6 @@ export class AppModule {
   }
 
   onServer() {
-    console.log('SERVER');
     this.transferState.onSerialize(STATE_KEY, () => {
       return this.cache.extract();
     });
