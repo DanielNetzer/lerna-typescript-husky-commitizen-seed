@@ -8,15 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compile:server": "webpack --config ./projects/docs/src/server/webpack.server.config.js --progress --colors",
+    "compile:server": "webpack --config ./projects/express/webpack.server.config.js --progress --colors",
     "serve:ssr": "nodemon dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run docs:server:production",
     "build-serve:ssr": "npm run build:ssr && npm run serve:ssr",
-    "watch:server:ng": "nodemon --watch projects/docs/src/ -e html,css,ts ./node_modules/@angular/cli/bin/ng run docs:server",
-    "watch:server:ts": "ng run docs:server --watch",
+    "watch:express": "wait-on ./dist/server/main.js && nodemon --watch projects/engine/ -e ts --exec npm run compile:server",
+    "watch:server": "ng run docs:server --watch",
     "watch:client": "ng build --watch",
-    "watch": "concurrently \"npm run watch:client\" \"npm run watch:server:ng\" \"npm run watch:server:ts\""
+    "watch": "concurrently -k -n \"WEB,SERVER,EXPRESS\" -c \"blue,magenta,yellow\" \"npm run watch:client\" \"npm run watch:server\" \"npm run watch:express\""
   },
   "private": true,
   "dependencies": {

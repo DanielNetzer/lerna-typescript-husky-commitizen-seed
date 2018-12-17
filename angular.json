@@ -164,41 +164,6 @@
           }
         }
       }
-    },
-    "golda-nodes": {
-      "root": "projects/golda-nodes",
-      "sourceRoot": "projects/golda-nodes/src",
-      "projectType": "library",
-      "prefix": "gn",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/golda-nodes/tsconfig.lib.json",
-            "project": "projects/golda-nodes/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/golda-nodes/src/test.ts",
-            "tsConfig": "projects/golda-nodes/tsconfig.spec.json",
-            "karmaConfig": "projects/golda-nodes/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/golda-nodes/tsconfig.lib.json",
-              "projects/golda-nodes/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "docs"

@@ -1,5 +1,4 @@
 import { Component, Inject, Optional } from '@angular/core';
-import { GOLDA_NODES_STATE, GoldaNodeState } from '../../../golda-nodes/src/public_api';
 
 @Component({
   selector: 'golda-docs-root',
@@ -8,8 +7,4 @@ import { GOLDA_NODES_STATE, GoldaNodeState } from '../../../golda-nodes/src/publ
 })
 export class AppComponent {
   title = 'docs';
-
-  constructor(@Optional() @Inject(GOLDA_NODES_STATE) private gNodesState: GoldaNodeState) {
-    console.log(this.gNodesState);
-  }
 }
