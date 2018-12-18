@@ -13,9 +13,10 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run docs:server:production",
     "build-serve:ssr": "npm run build:ssr && npm run serve:ssr",
-    "watch:server": "wait-on ./dist/server/main.js && nodemon --watch projects/ -e html,js,scss,css,ts --exec npm run compile:server",
-    "watch:client": "nodemon --watch projects/ ./node_modules/@angular/cli/bin/ng run docs:app-shell",
-    "watch": "rimraf dist && concurrently -k -n \"CLIENT,SERVER\" -c \"blue,magenta,yellow\" \"npm run watch:client\" \"npm run watch:server\""
+    "watch:server": "ng run docs:server --watch",
+    "watch:client": "ng build --watch",
+    "watch:engine": "wait-on ./dist/server/main.js && nodemon --watch projects/ -e html,js,scss,css,ts --exec npm run compile:server",
+    "watch": "rimraf dist && concurrently -k -n \"CLIENT,SERVER,ENGINE\" -c \"blue,green,yellow\" \"npm run watch:client\" \"npm run watch:server\" \"npm run watch:engine\""
   },
   "private": true,
   "dependencies": {
