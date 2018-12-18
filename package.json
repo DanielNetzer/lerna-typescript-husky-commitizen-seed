@@ -8,15 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compile:server": "webpack --config ./projects/engine/webpack.server.config.js --progress --colors",
+    "compile:server": "webpack --config ./projects/server/webpack.server.config.js --progress --colors",
     "serve:ssr": "nodemon dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run docs:server:production",
     "build-serve:ssr": "npm run build:ssr && npm run serve:ssr",
     "watch:server": "ng run docs:server --watch",
     "watch:client": "ng build --watch",
-    "watch:engine": "wait-on ./dist/server/main.js && nodemon --watch projects/ -e html,js,scss,css,ts --exec npm run compile:server",
-    "watch": "rimraf dist && concurrently -k -n \"CLIENT,SERVER,ENGINE\" -c \"blue,green,yellow\" \"npm run watch:client\" \"npm run watch:server\" \"npm run watch:engine\""
+    "watch:express": "wait-on ./dist/server/main.js && nodemon --watch projects/ -e html,js,scss,css,ts --exec npm run compile:server",
+    "watch": "rimraf dist && concurrently -k -n \"CLIENT,SERVER,EXPRESS\" -c \"blue,green,yellow\" \"npm run watch:client\" \"npm run watch:server\" \"npm run watch:express\""
   },
   "private": true,
   "dependencies": {
