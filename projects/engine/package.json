@@ -115,5 +115,8 @@
     "typedoc": "^0.12.0",
     "typescript": "^3.0.3",
     "travis-deploy-once": "^5.0.9"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.3.1"
   }
 }

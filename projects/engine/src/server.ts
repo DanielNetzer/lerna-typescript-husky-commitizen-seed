@@ -2,6 +2,9 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import { enableProdMode } from '@angular/core';
 
+// apollo server
+import { ApolloServer, gql } from 'apollo-server-express';
+
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import { join } from 'path';
@@ -12,17 +15,45 @@ import * as expressProxy from 'express';
 
 namespace express {
   export const def = expressProxy;
-
 }
 
 class Engine {
 
   private DIST_FOLDER = join(process.cwd(), 'dist/browser');
-  public app: expressProxy.Application;
 
-  initialize() {
-    this.app = express.def();
-    const config = this.getConfig();
+  constructor() {
+    const expressApp = this.initializeExpressApp({ config: 'TODO!' });
+    this.initializeApolloServer(expressApp);
+  }
+
+  private initializeApolloServer(app: expressProxy.Express) {
+    // Construct a schema, using GraphQL schema language
+    const typeDefs =
+      gql`
+        type Query {
+          hello: String
+        }
+        `;
+
+    // Provide resolver functions for your schema fields
+    const resolvers = {
+      Query: {
+        hello: () => 'Hello world!',
+      },
+    };
+
+    const server = new ApolloServer({ typeDefs, resolvers });
+
+    server.applyMiddleware({ app });
+
+    app.listen({ port: 4000 }, () =>
+      console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    );
+  }
+
+  private initializeExpressApp(expressConfig: unknown) {
+
+    const app = express.def();
     enableProdMode();
 
     // * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -30,32 +61,29 @@ class Engine {
     const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('../../dist/server/main');
 
     // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-    this.app.engine('html', ngExpressEngine({
+    app.engine('html', ngExpressEngine({
       bootstrap: AppServerModuleNgFactory,
       providers: [
         provideModuleMap(LAZY_MODULE_MAP)
       ]
     }));
-    // sd
-    this.app.set('view engine', 'html');
-    this.app.set('views', this.DIST_FOLDER);
+
+    app.set('view engine', 'html');
+    app.set('views', this.DIST_FOLDER);
 
     // Example Express Rest API endpoints
     // app.get('/api/**', (req, res) => { });
     // Server static files from /browser
-    this.app.get('*.*', express.def.static(this.DIST_FOLDER, {
+    app.get('*.*', express.def.static(this.DIST_FOLDER, {
       maxAge: '1y'
     }));
 
     // All regular routes use the Universal engine
-    this.app.get('*', (req, res) => {
+    app.get('*', (req, res) => {
       res.render('index', { req });
     });
 
-    // Start up the Node server
-    this.app.listen(config.PORT, () => {
-      console.log(`Node Express server listening on http://localhost:${config.PORT}`);
-    });
+    return app;
   }
 
   getConfig() {
