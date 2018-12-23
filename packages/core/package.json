@@ -1,9 +1,9 @@
 {
-  "name": "@golda/liba",
-  "version": "2.1.0",
-  "description": "testing ts monorepo",
+  "name": "@goldajs/core",
+  "version": "1.0.0",
+  "description": "goldajs core functionalities",
   "author": "DanielNetzer <daniel.netzer7@gmail.com>",
-  "homepage": "https://github.com/goldajs/golda#readme",
+  "homepage": "https://github.com/goldajs/goldajs#readme",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -19,18 +19,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://DanielNetzer:1324hzyI!@github.com/goldajs/golda.git"
+    "url": "git+https://github.com/goldajs/goldajs.git"
   },
   "scripts": {
-    "start": "ts-node ./src/index.ts",
     "tsc": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/goldajs/golda/issues"
-  },
-  "dependencies": {
-    "@golda/libb": "^2.1.0"
+    "url": "https://github.com/goldajs/goldajs/issues"
   },
   "gitHead": "bca267baa09d16ec5ccef530c3f1472f02e81f8b"
 }
