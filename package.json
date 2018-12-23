@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-all": "",
+    "tsc": "npm run tsc",
     "publish": "lerna run tsc && lerna publish",
     "commit": "git-cz"
   },
@@ -21,11 +21,14 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["prettier --write", "git add"]
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "hooks": {
     "pre-commit": "lint-staged"
