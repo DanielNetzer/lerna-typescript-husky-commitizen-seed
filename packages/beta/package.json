@@ -1,6 +1,6 @@
 {
   "name": "beta",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "> TODO: description",
   "author": "DanielNetzer <daniel.netzer7@gmail.com>",
   "homepage": "https://github.com/goldajs/golda#readme",
@@ -25,6 +25,6 @@
     "url": "https://github.com/goldajs/golda/issues"
   },
   "dependencies": {
-    "alpha": "^1.0.0"
+    "alpha": "^1.1.0"
   }
 }
