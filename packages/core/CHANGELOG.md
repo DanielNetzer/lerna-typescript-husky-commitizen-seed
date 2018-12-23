@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/goldajs/goldajs/compare/@goldajs/core@1.1.0...@goldajs/core@1.1.1) (2018-12-23)
+
+**Note:** Version bump only for package @goldajs/core
+
+
+
+
+
 # 1.1.0 (2018-12-23)
 
 
