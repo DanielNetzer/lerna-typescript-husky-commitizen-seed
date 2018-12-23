@@ -1,11 +1,9 @@
-# `libB`
+# `@goldajs/core`
 
-> TODO: description
+> goldajs core functionalities
 
 ## Usage
 
 ```
-const libB = require('libB');
-
 // TODO: DEMONSTRATE API
 ```

@@ -4,7 +4,7 @@
     "commit": "git-cz"
   },
   "license": "MIT",
-  "private": false,
+  "private": true,
   "devDependencies": {
     "lerna": "^3.7.1",
     "husky": "^1.2.1",
