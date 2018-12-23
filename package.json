@@ -1,7 +1,7 @@
 {
   "scripts": {
     "tsc": "npm run tsc",
-    "publish": "lerna run tsc && lerna publish -m \"chore: 🔖 Publish new version.\"",
+    "release": "lerna run tsc && lerna publish -m \"chore: 🔖 Publish new version.\"",
     "commit": "git-cz"
   },
   "license": "MIT",
