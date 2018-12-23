@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2018-12-23)
+
+
+### Features
+
+* **core:** lets get started ([c07ef95](https://github.com/goldajs/goldajs/commit/c07ef95))
+
+
+
+
+
 # [2.1.0](https://github.com/goldajs/golda/compare/@golda/libb@2.0.0...@golda/libb@2.1.0) (2018-12-23)
 
 
