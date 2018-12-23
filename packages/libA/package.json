@@ -5,13 +5,17 @@
   "author": "DanielNetzer <daniel.netzer7@gmail.com>",
   "homepage": "https://github.com/goldajs/golda#readme",
   "license": "MIT",
-  "main": "lib/index.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
-    "lib"
+    "dist"
   ],
   "repository": {
     "type": "git",

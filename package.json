@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "tsc": "npm run tsc",
     "release": "lerna run tsc && lerna publish -m \"chore: 🔖 Publish new version.\"",
     "commit": "git-cz"
   },
