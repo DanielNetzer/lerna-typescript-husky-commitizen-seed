@@ -1,6 +1,6 @@
 {
   "name": "@golda/liba",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "testing ts monorepo",
   "author": "DanielNetzer <daniel.netzer7@gmail.com>",
   "homepage": "https://github.com/goldajs/golda#readme",
@@ -26,6 +26,6 @@
     "url": "https://github.com/goldajs/golda/issues"
   },
   "dependencies": {
-    "@golda/libb": "^1.0.0"
+    "@golda/libb": "^2.0.0"
   }
 }
