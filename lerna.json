@@ -3,10 +3,19 @@
     "packages/*"
   ],
   "command": {
+    "create": {
+      "license": "MIT"
+    },
     "publish": {
-      "conventionalCommits": true
+      "allowBranch": "master",
+      "bump": "patch",
+      "conventionalCommits": true,
+      "message": "chore(release): 🔖 Publish new version.",
+      "ignoreChanges": ["CHANGELOG.md"]
     }
   },
+  "loglevel": "success",
+  "registry": "https://registry.npmjs.org/",
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true

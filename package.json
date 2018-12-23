@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "release": "lerna run tsc && lerna publish -m \"chore: 🔖 Publish new version.\"",
+    "release": "lerna run tsc && lerna publish",
     "commit": "git-cz"
   },
   "license": "MIT",
