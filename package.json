@@ -1,10 +1,11 @@
 {
   "scripts": {
     "tsc": "npm run tsc",
-    "publish": "lerna run tsc && lerna publish",
+    "publish": "lerna run tsc && lerna publish -m \"chore: 🔖 Publish new version.\"",
     "commit": "git-cz"
   },
-  "private": true,
+  "license": "MIT",
+  "private": false,
   "devDependencies": {
     "lerna": "^3.7.1",
     "husky": "^1.2.1",

@@ -27,5 +27,6 @@
   },
   "dependencies": {
     "@golda/libb": "^2.0.0"
-  }
+  },
+  "gitHead": "bca267baa09d16ec5ccef530c3f1472f02e81f8b"
 }
