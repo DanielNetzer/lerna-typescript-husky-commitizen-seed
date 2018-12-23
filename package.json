@@ -30,8 +30,10 @@
       "git add"
     ]
   },
-  "hooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "engines": {
     "yarn": "^1.2.1",
