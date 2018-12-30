@@ -28,5 +28,13 @@
   "bugs": {
     "url": "https://github.com/goldajs/goldajs/issues"
   },
-  "gitHead": "bca267baa09d16ec5ccef530c3f1472f02e81f8b"
+  "gitHead": "bca267baa09d16ec5ccef530c3f1472f02e81f8b",
+  "dependencies": {
+    "cache-manager": "^2.9.0",
+    "cache-manager-fs-hash": "0.0.6",
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.4"
+  }
 }

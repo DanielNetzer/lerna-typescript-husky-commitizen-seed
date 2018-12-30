@@ -1,7 +1,6 @@
 node_modules/
 lerna-debug.log
 npm-debug.log
-typings
 packages/*/lib
 packages/*/dist
 .idea
